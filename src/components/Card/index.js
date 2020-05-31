@@ -1,11 +1,12 @@
 import React from 'react';
+import defaultPath from '../../assets/img/landscape_not_available.jpg';
 
 const Card = ({ imagePath, name }) => {
   return (
-    <div className="card text-center" style={{ marginBottom: 20 }}>
-      <img src={imagePath} className="card-img-top" alt={name} />
-      <div className="card-body" style={{ padding: 8, minHeight: 76, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h5 style={{ margin: 0 }} className="card-title">{name}</h5>
+    <div className="card text-center app-card">
+      <img src={imagePath || defaultPath} className="card-img-top" alt={name} />
+      <div className="card-body app-card-body">
+        <h5 className="card-title app-container-reset">{name}</h5>
       </div>
     </div>
   )

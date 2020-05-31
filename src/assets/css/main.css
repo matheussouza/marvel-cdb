@@ -1,3 +1,46 @@
+.app-nav {
+  background-color: #F04B52;
+}
+
+.app-nav-logo {
+  max-width: 60px;
+}
+
+.app-content-container {
+  padding: 60px;
+}
+
+.app-container-reset {
+  padding: 0;
+  margin: 0;
+}
+
+.app-search {
+  max-width: 220px;
+}
+
+.app-navigation-bar-container {
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.app-navigation-button {
+  margin: 0 10px;
+  width: 56px;
+}
+
+.app-card {
+  margin: 10px 0;
+}
+
+.app-card-body {
+  padding: 8;
+  min-height: 76px;
+  align-items: center;
+  justify-content: center;
+}
+
 .loading-container {
   position: fixed;
   z-index: 1000;

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationBar component should be equals snapshot 1`] = `
+<div>
+  <div
+    class="d-flex app-navigation-bar-container"
+  >
+    <div
+      class="d-flex"
+    >
+      <button
+        class="btn btn-danger app-navigation-button"
+        data-testid="previous-page-button"
+        disabled=""
+      >
+        <i
+          class="fa fa-chevron-left"
+        />
+      </button>
+      <button
+        class="btn btn-danger app-navigation-button"
+        data-testid="next-page-button"
+        disabled=""
+      >
+        <i
+          class="fa fa-chevron-right"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

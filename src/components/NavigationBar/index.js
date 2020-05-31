@@ -1,21 +1,24 @@
 import React from 'react';
 
 const NavigationBar = ({ page, total, search, changePage, pageSize = 20 }) => {
+  if (!page || page === 0 )
+    return <></>;
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', width: '100%', paddingBottom: 20 }}>
-      <div style={{ display: 'flex' }}>
+    <div className="d-flex app-navigation-bar-container" >
+      <div className="d-flex">
         <button
+          data-testid="previous-page-button"
           disabled={ page === 1 } 
-          className="btn btn-danger"
-          style={{ marginRight: 20, width: 56 }}
+          className="btn btn-danger app-navigation-button"
           onClick={() => changePage(search, page - 1)}
         >
           <i className="fa fa-chevron-left" />
         </button>
         <button
+          data-testid="next-page-button"
           disabled={ total <= pageSize || page === Math.ceil(total / pageSize) }
-          className="btn btn-danger"
-          style={{ marginLeft: 20, width: 56 }}
+          className="btn btn-danger app-navigation-button"
           onClick={() => changePage(search, page + 1)}
         >
           <i className="fa fa-chevron-right" />

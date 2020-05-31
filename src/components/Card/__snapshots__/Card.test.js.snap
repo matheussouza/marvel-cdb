@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should render 1`] = `
+<div>
+  <div
+    class="card text-center app-card"
+  >
+    <img
+      class="card-img-top"
+      src="landscape_not_available.jpg"
+    />
+    <div
+      class="card-body app-card-body"
+    >
+      <h5
+        class="card-title app-container-reset"
+      />
+    </div>
+  </div>
+</div>
+`;

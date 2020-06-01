@@ -1,4 +1,5 @@
-image: node:12.10.0
+image: rambabusaravanan/firebase
+
 unit_tests:
   stage: test
   before_script:

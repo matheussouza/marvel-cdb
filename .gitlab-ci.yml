@@ -1,0 +1,7 @@
+unit_tests:
+  image: node:12.10.0
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm test

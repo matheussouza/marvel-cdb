@@ -7,15 +7,3 @@ unit_tests:
   script:
     - npm run test:ci
 
-deploy-prod:
-  environment:
-    - REACT_APP_API_PUBLIC_KEY=$MARVEL_CDB_PUBLIC_KEY
-    - REACT_APP_API_PRIVATE_KEY=$MARVEL_CDB_PRIVATE_KEY
-  stage: deploy
-  only:
-    - master
-  script:
-    - npm install
-    - npm run build
-    - firebase use marvel-cdb --token $FIREBASE_TOKEN
-    - firebase deploy --only hosting -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN

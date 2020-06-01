@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { loadCharactersRequest } from '../../store/ducks/characters';
+import { loadCharactersRequest } from '../../../store/ducks/characters';
 
 import Header from './component';
 

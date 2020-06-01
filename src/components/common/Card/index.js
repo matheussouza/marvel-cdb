@@ -1,7 +1,7 @@
 import React from 'react';
-import defaultPath from '../../assets/img/landscape_not_available.jpg';
+import defaultPath from '../../../assets/img/landscape_not_available.jpg';
 
-const Card = ({ imagePath, name }) => {
+export default ({ imagePath, name }) => {
   return (
     <div className="card text-center app-card">
       <img src={imagePath || defaultPath} className="card-img-top" alt={name} />
@@ -11,5 +11,3 @@ const Card = ({ imagePath, name }) => {
     </div>
   )
 }
-
-export default Card;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import logo from '../../assets/img/logo.png';
+import logo from '../../../assets/img/logo.png';
 
-const Header = ({ loadCharactersRequest }) => {
+export default ({ loadCharactersRequest }) => {
   const [subject, setSubject] = useState('');
 
   return (
@@ -21,5 +21,3 @@ const Header = ({ loadCharactersRequest }) => {
     </div>
   )
 }
-
-export default Header;

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 
-const CharacterForm = (props) => {
-  const { back, update } = props;
-  const { character } = props;
-
+export default ({ character, back, update }) => {
   const [name, setName] = useState(character.name);
   const [description, setDescription] = useState(character.description || '');
 
@@ -13,12 +10,13 @@ const CharacterForm = (props) => {
 
   return (
     <div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div className="d-flex align-items-center justify-content-between">
         <div>
-          <h3 style={{ margin: 0, display: 'inline' }}>Update data</h3>
+          <h3 className="m-0 d-inline">Update data</h3>
         </div>
         <div className="d-none d-sm-block">
           <button
+            data-testid="save-computer"
             className="btn btn-primary"
             onClick={ () => {
               update(name, description);
@@ -27,12 +25,16 @@ const CharacterForm = (props) => {
           >
             Save
           </button>
-          <button className="btn btn-secondary" onClick={() => {
-            if (confirmCancel())
-              back();
+          <button
+            data-testid="cancel-computer"
+            className="btn btn-secondary"
+            onClick={() => {
+              if (confirmCancel())
+                back();
             }}
-            style={{ marginLeft: 10 }}>
-              Cancel
+            style={{ marginLeft: 10 }}
+          >
+            Cancel
           </button>
         </div>
       </div>
@@ -40,12 +42,13 @@ const CharacterForm = (props) => {
       <div>
         <div className="form-group">
           <label>Name</label>
-          <input type="text" className="form-control" value={name} onChange={ (event) => setName(event.target.value) } />
+          <input data-testid="name-input" type="text" className="form-control" value={name} onChange={ (event) => setName(event.target.value) } />
         </div>
 
         <div className="form-group">
           <label>Description</label>
           <textarea
+            data-testid="description-input"
             className="form-control"
             onChange={ (event) => setDescription(event.target.value) }
             value={description || 'Description unavailable.'}
@@ -53,6 +56,7 @@ const CharacterForm = (props) => {
         </div>
         <div className="d-sm-none" style={{ paddingBottom: 20 }}>
           <button
+            data-testid="save-mobile"
             className="btn btn-primary"
             onClick={ () => {
               update(name, description);
@@ -61,17 +65,19 @@ const CharacterForm = (props) => {
           >
             Save
           </button>
-          <button className="btn btn-secondary" onClick={() => {
-            if (confirmCancel())
-              back();
+          <button
+            data-testid="cancel-mobile"
+            className="btn btn-secondary"
+            onClick={() => {
+              if (confirmCancel())
+                back();
             }}
-            style={{ marginLeft: 10 }}>
-              Cancel
+            style={{ marginLeft: 10 }}
+          >
+            Cancel
           </button>
         </div>
       </div>
     </div>
   )
 }
-
-export default CharacterForm;

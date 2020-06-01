@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { API_HOST, API_PUBLIC_KEY, API_PRIVATE_KEY } from '../config';
+import { API_HOST } from '../config';
 import md5 from 'md5';
 
 export const authorizationQuery = () => {
   const timestamp = Date.now();
-
-  return `apikey=${API_PUBLIC_KEY}&ts=${timestamp}&hash=${md5(timestamp + API_PRIVATE_KEY + API_PUBLIC_KEY)}`;
+  const publicKey = process.env.REACT_APP_API_PUBLIC_KEY;
+  const privateKey = process.env.REACT_APP_API_PRIVATE_KEY;
+  return `apikey=${publicKey}&ts=${timestamp}&hash=${md5(timestamp + privateKey + publicKey)}`;
 }
 
 const api = axios.create({

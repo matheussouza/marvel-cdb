@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
+import Header from './components/common/Header';
 import CharactersList from './pages/CharactersList';
-import CharacterSeries from './pages/CharacterSeries';
 import Character from './pages/Character';
+import CharactersSeries from './pages/CharactersSeries';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -12,7 +12,7 @@ const AppRouter = () => (
       <Switch>
         <Route exact path="/" component={CharactersList} />
         <Route exact path="/:id" component={Character} />
-        <Route exact path="/:id/series" component={CharacterSeries} />
+        <Route exact path="/:id/series" component={CharactersSeries} />
       </Switch>
     </div>
   </BrowserRouter>

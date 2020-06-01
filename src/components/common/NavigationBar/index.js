@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavigationBar = ({ page, total, search, changePage, pageSize = 20 }) => {
+export default ({ page, total, search, changePage, pageSize = 20 }) => {
   if (!page || page === 0 )
     return <></>;
 
@@ -27,5 +27,3 @@ const NavigationBar = ({ page, total, search, changePage, pageSize = 20 }) => {
     </div>
   );
 };
-
-export default NavigationBar;

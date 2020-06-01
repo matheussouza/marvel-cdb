@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
-import Loading from '../components/Loading';
-import NavigationBar from '../components/NavigationBar';
-import { loadCharactersRequest } from '../store/ducks/characters';
-import Card from '../components/Card';
+import Loading from '../../components/common/Loading';
+import NavigationBar from '../../components/common/NavigationBar';
+import Card from '../../components/common/Card';
 
-const CharactersList = (props) => {
-  const { loading, chars, charSearch, page, modified, total, loadCharactersRequest, history } = props;
-
+export default ({ loading, chars, charSearch, page, modified, total, loadCharactersRequest, history }) => {
   useEffect(() => { loadCharactersRequest() }, [loadCharactersRequest]);
 
   const getUpdatedName = char => modified.hasOwnProperty(char.id) ? modified[char.id].name : char.name;
@@ -49,16 +44,3 @@ const CharactersList = (props) => {
     </div>
   );
 };
-
-const mapStateToProps = (state) => ({
-  loading: state.characters.loading,
-  chars: state.characters.data,
-  charSearch: state.characters.search,
-  total: state.characters.total,
-  page: state.characters.page,
-  modified: state.detail.changed,
-})
-
-const mapDispatchToProps = { loadCharactersRequest }
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CharactersList));

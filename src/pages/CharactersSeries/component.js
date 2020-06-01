@@ -1,25 +1,17 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import Loading from '../../components/common/Loading';
+import NavigationBar from '../../components/common/NavigationBar';
+import Card from '../../components/common/Card';
 
-import Loading from '../components/Loading';
-import NavigationBar from '../components/NavigationBar';
-import { loadSeriesRequest } from '../store/ducks/series';
-import { loadDetailsRequest } from '../store/ducks/detail';
-import Card from '../components/Card';
-
-const CharactersSeries = (props) => {
-  const { loading, series, page, total, loadSeriesRequest, character, history, loadDetailsRequest } = props;
-  const { match } = props;
-
+export default ({ loading, series, page, total, loadSeriesRequest, character, history, loadDetailsRequest, match }) => {
   useEffect(() => { loadDetailsRequest(match.params.id) }, [loadDetailsRequest, match.params.id]);
   useEffect(() => { loadSeriesRequest(match.params.id) }, [loadSeriesRequest, match.params.id]);
 
   return (
     <div>
       <div className="container">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <h2 style={{ margin: 0 }}>{character.name} - <small><i>Series</i></small></h2>
+        <div className="d-flex align-items-center justify-content-between">
+          <h2 className="m-0">{character.name} - <small><i>Series</i></small></h2>
           <button className="btn btn-danger" onClick={() => history.push(`/${match.params.id}`)}>
             <i className="fa fa-arrow-circle-left" /> Back
           </button>
@@ -51,15 +43,3 @@ const CharactersSeries = (props) => {
     </div>
   );
 };
-
-const mapStateToProps = (state) => ({
-  series: state.series.data,
-  loading: state.series.loading,
-  page: state.series.page,
-  total: state.series.total,
-  character: state.detail.data
-})
-
-const mapDispatchToProps = { loadSeriesRequest, loadDetailsRequest }
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CharactersSeries));

@@ -8,7 +8,9 @@ unit_tests:
     - npm run test:ci
 
 deploy-prod:
-  
+  environment:
+    - REACT_APP_API_PUBLIC_KEY=$MARVEL_CDB_PUBLIC_KEY
+    - REACT_APP_API_PRIVATE_KEY=$MARVEL_CDB_PRIVATE_KEY
   stage: deploy
   only:
     - master
